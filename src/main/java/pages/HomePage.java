@@ -86,6 +86,16 @@ public class HomePage {
         return new MultipleWindowsPage(driver);
     }
 
+    public AddRemoveElementsPage clickAddRemoveElements() {
+        clickLink("Add/Remove Elements");
+        return new AddRemoveElementsPage(driver);
+    }
+
+    public BrokenImagesPage clickBrokenImages() {
+        clickLink("Broken Images");
+        return new BrokenImagesPage(driver);
+    }
+
     private void clickLink (String linkText) {
         driver.findElement(By.linkText(linkText)).click();
     }
