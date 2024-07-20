@@ -2,11 +2,14 @@ package base;
 
 import com.google.common.io.Files;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +20,7 @@ import utils.WindowManager;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 public class baseTest {
 
@@ -29,6 +33,8 @@ public class baseTest {
         WebDriverManager.chromedriver().setup();   // Using WebDriverManager doesn't require to download chromedriver
         driver = new ChromeDriver(getChromeOptions());
         goHome();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.textToBe(By.className("heading"), "Welcome to the-internet"));
         driver.manage().window().maximize();
         System.out.println(driver.getTitle());
 

@@ -96,6 +96,21 @@ public class HomePage {
         return new BrokenImagesPage(driver);
     }
 
+    public CheckboxesPage clickCheckboxes() {
+        clickLink("Checkboxes");
+        return new CheckboxesPage(driver);
+    }
+
+    public BasicAuthPage clickBasicAuth() {
+        clickLink("Basic Auth");
+        return new BasicAuthPage(driver);
+    }
+
+    public DisappearingElementsPage clickDisappearingElements() {
+        clickLink("Disappearing Elements");
+        return new DisappearingElementsPage(driver);
+    }
+
     private void clickLink (String linkText) {
         driver.findElement(By.linkText(linkText)).click();
     }
