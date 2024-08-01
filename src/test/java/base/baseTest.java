@@ -36,8 +36,6 @@ public class baseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.textToBe(By.className("heading"), "Welcome to the-internet"));
         driver.manage().window().maximize();
-        System.out.println(driver.getTitle());
-
         homePage = new HomePage(driver);
     }
 
