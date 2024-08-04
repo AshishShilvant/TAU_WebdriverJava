@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Ashish/IdeaIntelliJProjects/TestAutomationUniversity/Webdriver_Java">
+        <classes>
+            <class name="DragAndDropElements.DragAndDropTests">
+                <methods>
+                    <include name="testDragAndDropOfElements"/>
+                </methods>
+            </class>
+            <class name="JavaScript.JavaScriptTests">
+                <methods>
+                    <include name="testScrollToTable"/>
+                    <include name="testParagraphScrolls"/>
+                </methods>
+            </class>
+            <class name="Navigation.NavigationTests">
+                <methods>
+                    <include name="testBrowserNavigations"/>
+                    <include name="testSwtichingWindows"/>
+                </methods>
+            </class>
+            <class name="Navigation.WindowTests">
+                <methods>
+                    <include name="testWindowTabs"/>
+                </methods>
+            </class>
+            <class name="addremoveelement.AddRemoveElementTests">
+                <methods>
+                    <include name="testAddingRemovingElements"/>
+                </methods>
+            </class>
+            <class name="alerts.AletsTests">
+                <methods>
+                    <include name="testAcceptAlert"/>
+                    <include name="testDismissAlert"/>
+                    <include name="testEnterTextIntoAlert"/>
+                </methods>
+            </class>
+            <class name="alerts.ContextMenuTests">
+                <methods>
+                    <include name="testContextMenuClick"/>
+                </methods>
+            </class>
+            <class name="alerts.FileUploadTests">
+                <methods>
+                    <include name="testFileUpload"/>
+                </methods>
+            </class>
+            <class name="brokenImages.BrokenImagesTests">
+                <methods>
+                    <include name="testBrokenImagesPresent"/>
+                </methods>
+            </class>
+            <class name="checkboxes.CheckboxesTests">
+                <methods>
+                    <include name="testCurrentCheckboxesState"/>
+                    <include name="testClickingCheckboxes"/>
+                </methods>
+            </class>
+            <class name="disappearingElements.DisappearingElementsTests">
+                <methods>
+                    <include name="testDisappearingAndReappearingElements"/>
+                </methods>
+            </class>
+            <class name="dropdown.DropDownTests">
+                <methods>
+                    <include name="testSelectOption"/>
+                    <include name="testMultipleSelectionFromDropDown"/>
+                </methods>
+            </class>
+            <class name="forgotpassword.ForgotPasswordTests">
+                <methods>
+                    <include name="testForgotPassword"/>
+                </methods>
+            </class>
+            <class name="frames.FrameTests">
+                <methods>
+                    <include name="testSwitchingToIFrame"/>
+                </methods>
+            </class>
+            <class name="frames.NestedFramesTests">
+                <methods>
+                    <include name="testNestedFrames"/>
+                </methods>
+            </class>
+            <class name="hovers.HoversTests">
+                <methods>
+                    <include name="testHoverUser1"/>
+                </methods>
+            </class>
+            <class name="keys.KeysTests">
+                <methods>
+                    <include name="testBackspace"/>
+                    <include name="testPi"/>
+                </methods>
+            </class>
+            <class name="login.LoginTests">
+                <methods>
+                    <include name="testSuccessfulLogin"/>
+                </methods>
+            </class>
+            <class name="slider.SliderTests">
+                <methods>
+                    <include name="dragSliderToRight"/>
+                </methods>
+            </class>
+            <class name="wait.DynamicLoadingTests">
+                <methods>
+                    <include name="testDynamicLoadingWait"/>
+                    <include name="testDynamicLoadingOnceElementIsVisible"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
