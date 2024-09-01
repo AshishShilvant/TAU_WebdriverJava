@@ -116,6 +116,16 @@ public class HomePage {
         return new DragAndDropPage(driver);
     }
 
+    public DynamicControlsPage clickDynamicControls() {
+        clickLink("Dynamic Controls");
+        return new DynamicControlsPage(driver);
+    }
+
+    public ExitIntentPage clickExitIntent() {
+        clickLink("Exit Intent");
+        return new ExitIntentPage(driver);
+    }
+
     private void clickLink (String linkText) {
         driver.findElement(By.linkText(linkText)).click();
     }
