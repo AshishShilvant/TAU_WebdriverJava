@@ -1,21 +1,22 @@
 package base;
 
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.google.common.io.Files;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+import utils.ConfigReader;
+import utils.ExtentTestManager;
 import utils.WindowManager;
 
 import java.io.File;
@@ -30,18 +31,29 @@ public class baseTest {
     @BeforeClass
     public void setup () {
      //   System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");  // Old way of doing things
-        WebDriverManager.chromedriver().setup();   // Using WebDriverManager doesn't require to download chromedriver
-        driver = new ChromeDriver(getChromeOptions());
+
+        String browser = ConfigReader.getProperty("browser");
+
+        if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();   // Using WebDriverManager doesn't require to download chromedriver
+            driver = new ChromeDriver(getChromeOptions());
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+        }
+
         goHome();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.textToBe(By.className("heading"), "Welcome to the-internet"));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        /*WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.textToBe(By.className("heading"), "Welcome to the-internet"));*/
         driver.manage().window().maximize();
+
         homePage = new HomePage(driver);
     }
 
     @BeforeMethod
     public void goHome() {
-        driver.get("https://the-internet.herokuapp.com/");
+        driver.get(ConfigReader.getProperty("base.url"));
       //  setCookie();
     }
 
@@ -54,6 +66,9 @@ public class baseTest {
             try {
                 Files.move(screenshot, new File("resources/Screenshots/" + result.getName() + ".png"));
             } catch (IOException e) {
+                ExtentTestManager.getTest().fail(result.getName() + " test failed.",
+                        MediaEntityBuilder.createScreenCaptureFromPath("resources/Screenshots/" + result.getName() + ".png").build());
+
                 e.printStackTrace();
             }
         }

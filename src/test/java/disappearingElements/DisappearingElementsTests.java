@@ -1,12 +1,13 @@
 package disappearingElements;
 
 import base.baseTest;
+import listeners.RetryAnalyzer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DisappearingElementsTests extends baseTest {
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void testDisappearingAndReappearingElements() {
         var disappearingElementsPage = homePage.clickDisappearingElements();
         boolean isGalleryElementPresent = disappearingElementsPage.checkIfGalleryElementIsPresent();
