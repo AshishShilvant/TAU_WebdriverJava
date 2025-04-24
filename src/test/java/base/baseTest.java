@@ -67,7 +67,7 @@ public class baseTest {
                 Files.move(screenshot, new File("resources/Screenshots/" + result.getName() + ".png"));
             } catch (IOException e) {
                 ExtentTestManager.getTest().fail(result.getName() + " test failed.",
-                        MediaEntityBuilder.createScreenCaptureFromPath("resources/Screenshots/" + result.getName() + ".png").build());
+                MediaEntityBuilder.createScreenCaptureFromPath("resources/Screenshots/" + result.getName() + ".png").build());
 
                 e.printStackTrace();
             }

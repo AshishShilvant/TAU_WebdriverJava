@@ -33,7 +33,7 @@ public class DynamicControlsPage {
 
     public void clickRemoveButton() {
         driver.findElement(removeButton).click();
-//        FluentWait wait = new FluentWait(driver)
+//        Wait<WebDriver> wait = new FluentWait<>(driver)
 //                .withTimeout(Duration.ofSeconds(10))
 //                .pollingEvery(Duration.ofSeconds(1))
 //                .ignoring(NoSuchElementException.class);
@@ -45,7 +45,7 @@ public class DynamicControlsPage {
 
     public void clickAddButton() {
         driver.findElement(addButton).click();
-//        FluentWait wait = new FluentWait(driver)
+//        Wait<WebDriver> wait = new FluentWait<>(driver)
 //                .withTimeout(Duration.ofSeconds(5))
 //                .pollingEvery(Duration.ofSeconds(1))
 //                .ignoring(NoSuchElementException.class);
